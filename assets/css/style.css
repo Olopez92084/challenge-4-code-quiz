@@ -1,0 +1,13 @@
+body {text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 20px;
+      background-color: lightseagreen;}
+
+button {padding: 5px;
+        margin: 10px;
+        border-radius: 30px;
+        background-color: white;}
+    
+.quiz-container button {justify-content: center;
+        display: flex block;
+        margin: 10px;}
