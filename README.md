@@ -18,3 +18,5 @@ THEN I can save my initials and score
 site published at https://olopez92084.github.io/challenge-4-code-quiz/
 
 Github repo link: https://github.com/Olopez92084/challenge-4-code-quiz.git
+
+Credits: Created by Orlando Lopez for GW University
