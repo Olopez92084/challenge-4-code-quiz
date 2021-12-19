@@ -11,3 +11,5 @@ WHEN all questions are answered or the timer reaches 0
 THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
+
+![04-web-apis-homework-demo](https://user-images.githubusercontent.com/94086814/146693928-256dde65-af33-42dd-b187-52e65033fced.gif)
