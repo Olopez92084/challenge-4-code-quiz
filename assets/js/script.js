@@ -114,12 +114,12 @@ correctAnswer = questions[currentQuestionIndex].correct;
 var answerDetermination = document.querySelector("#answer-determination");
 if (userAnswer !== correctAnswer) {
     adjustTime(-5);
-answerDetermination.textContent = "WRONG!";
+answerDetermination.textContent = "Wrong!";
 currentQuestionIndex++;
-
 if (currentQuestionIndex >= questions.length) {
     endQuizPage();
 } else {renderQuestion(questions[currentQuestionIndex])};
+
 }
 
 else if (userAnswer === correctAnswer) {
@@ -128,8 +128,7 @@ answerDetermination.textContent = "Correct!";
 userScore++;
 if (currentQuestionIndex >= questions.length) {
     endQuizPage();
-}
-else {renderQuestion(questions[currentQuestionIndex])};
+} else {renderQuestion(questions[currentQuestionIndex])};
 }
 };
 
@@ -141,7 +140,7 @@ renderQuestion(questions[currentQuestionIndex]);
 
 function resetDisplay() {
     questionContainer.innerHTML="";
-document.querySelector("#intro-page").style.display = "none";
+document.querySelector("intro-page").style.display = "none";
 }
 
 function highScores() {
@@ -152,7 +151,6 @@ function highScores() {
     questionContainer.innerHTML = "";
     questionContainer.innerHTML = name + " " + score;
 }
-
 clickViewScores.addEventListener("click", () => {
     highScores();
 })
