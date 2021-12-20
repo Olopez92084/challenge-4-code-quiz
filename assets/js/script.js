@@ -60,8 +60,8 @@ function adjustTime(amount) {timeLeft += amount;
 clickStart.onclick = timer;
 var renderQuestion = function (question) {questionContainer.innerHTML = "";
 
-var questionHeader = document.createElement("h2");
-questionHeader.textContent = question.q;
+var question = document.createElement("h2");
+question.textContent = question.q;
 
 var answerA = document.createElement("button");
 answerA.textContent = question.A;
@@ -79,7 +79,7 @@ var answerD = document.createElement("button");
 answerD.textContent = question.D;
 answerD.addEventListener("click", answerClick);
 
-questionContainer.appendChild(questionHeader);
+questionContainer.appendChild(question);
 questionContainer.appendChild(answerA);
 questionContainer.appendChild(answerB);
 questionContainer.appendChild(answerC);
@@ -96,38 +96,37 @@ correctAnswer = questions[currentQuestionIndex].correct;
 //var useranswer still needs to be defined. Determine right and wrong answers.
 
 var answerDetermination = document.querySelector("#answer-determination");
-if (userAnswer !== correctAnswer) {adjustTime(-10);
+if (userAnswer !== correctAnswer) {adjustTime(-5);
 answerDetermination.textContent = "WRONG!";
 currentQuestionIndex++;
 if (currentQuestionIndex >= questions.length) {endQuizPage();}
-else {renderQuestion(questions[currentQuestionIndex])};}
+else {renderQuestion(questions[currentQuestionIndex])};}}
 
 else if (userAnswer === correctAnswer) {currentQuestionIndex++;
-    answerDetermination.textContent = "Correct!";
-    userScore++;
-    if (currentQuestionIndex >= questions.length) {endQuizPage();} 
-    else {renderQuestion(questions[currentQuestionIndex])};}
-};
+answerDetermination.textContent = "Correct!";
+userScore++;
+if (currentQuestionIndex >= questions.length) {endQuizPage();}
+else {renderQuestion(questions[currentQuestionIndex])};
+}
 
 var quiz = function (event) {event.preventDefault();
-resetDisplay();
-renderQuestion(questions[currentQuestionIndex]);
-};
+resetDisplay():
+renderQuestion(questions[currentQuestionIndex]);};
 
 function resetDisplay() {questionContainer.innerHTML="";
-document.querySelector("#intro-page").style.display = "none";}
+document.querySelector("#intro-page").getElementsByClassName.display = "none";}
 
-function highScores() {let data = localStorage.getItem("object");
-let getData = JSON.parse(data);
-let name = getData.name;
-let score = getData.score;
-questionContainer.innerHTML = "";
-questionContainer.innerHTML = name + " " + score;}
+function highScores() {
+    let data = localSt(orage.getItem("object");
+    let getData - JSON.parse(data);
+    let name = getData.name;
+    let score = getData.score;
+    questionContainer.innerHTML = "";
+    questionContainer.innerHTML = name + " " + score;}
 
-clickViewScores.addEventListener("click", () => {
-    highScores(); })
+clickViewScores.addEventListener("click", () => {highScores();})
 
-var initials; 
+var initials;
 function endQuizPage() {resetDisplay();
 timerEl.textContent = "";
 clearInterval(quizDuration);
@@ -137,7 +136,7 @@ questionContainer.appendChild(endPage);
 let blank = document.querySelector("#answer-determination");
 blank.innerHTML = "";
 
-endPage.innerHTML = "All done! Your final score is " + userScore + ". Enter your initials to save";
+endPage.innerHTML = "Quiz Complete! Your score is ' + userScore + '. Enter Initials to Save";
 
 var initialBox = document.createElement("input");
 blank.appendChild(initialBox);
@@ -147,29 +146,26 @@ submitInitialBtn.textContent = "Submit";
 blank.appendChild(submitInitialBtn);
 
 submitInitialBtn.addEventListener("click", () => {
-    
     if (initialBox.value.length === 0) return false;
 
-    let storeInitials = (...input) => 
-    {let data = JSON.stringify({ "name":input[0], "score":input[1]})
-        localStorage.setItem("object", data)}
+    let storeInitials = (...input) => {let data = JSON.stringify({"name":input[0], "score":input[1]})
+    localStorage.setItem("object", data)
+}
+storeInitials(initialBox.value, userScore);
 
-    storeInitials(initialBox.value, userScore);
+var playAgain = document.createElement("button");
+playAgain.textContent= "Retake Quiz?";
+blank.appendChild(playAgain);
 
-    var playAgain = document.createElement("button");
-    playAgain.textContent= "Play Again!";
-    blank.appendChild(playAgain);
-
-    playAgain.addEventListener("click", () => 
-    {location.reload();})
+playAgain.addEventListener("click", () => {location.reload();
+    })
 });
 
 document.querySelector("input").value = "";
-
-initialBox.addEventListener("submit", endQuizPage); };
-
-function renderInitials() {submitInitialBtn.addEventListener('click', function(event) 
-{event.preventDefault;}
-)};
+initialBox.addEventListener("submit", function(event) {event.preventDefault;
+})};
 
 clickStart.addEventListener('click', quiz);
+
+
+
